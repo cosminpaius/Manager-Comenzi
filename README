@@ -1,22 +1,14 @@
 Paius Marian-Cosmin
-332CC
+				Manager Comenzi
 
-
-	In clasa Tema2, deschid fisierele, preiau argumentele, dupa care deschid 2 ExecutorService
- pentru fiecare nivel in parte. Variabila InQueue ia valori intre 0 si numarul de thread-uri,
- scazand in momentul in care fiecare thread termina de citit din fisier. Deschid NUM_THREADS
- task-uri, prin metoda submit() folosind MyRunnable pentru a se ocupa de comenzi.
-	
-	In clasa MyRunnable care implementeaza interfata Runnable, preiau cele 2 ExecutorService,
- readear-ul, numarul de thread-uri si numele fisierului de intrare pentru comenzi. Incep
- sa citesc pornind task-uri care sa se ocupe de fisierul de produse. In plus, deschid cate un reader
- nou pentru fiecare comanda asfel incat fiecare thread sa citeasca parti diferite din fisier(BONUS).
- Folosesc un semafor, initializat cu minus numarul de produse din comanda curenta +1, dand release()
- la fiecare produs citit, astfel incat in momentul in care sunt citite toate produsele, sa se scrie 
- in fisierul de iesire faptul ca a fost expediata comanda. Dupa terminarea while-ului, decrementez InQueue.
-	
-	In clasa MyRunnable2, citesc linia din fisier, separand numele comenzii de numele produsului.
- Preiau cele 2 ExecutorService, reader-ul, semaforul si linia citita din fisierul orders.txt pentru
- a compara numele comenzii cu cel al celei curente. In cazul in care comanda citita corespunde cu
- cea trimisa, creste numarul de produse gasite (semaphore.release()) si scriu in fisierul de iesire
- faptul ca produsul curent a fost expediat, iar in final citesc urmatoarea linie. 
+	Pentru aceasta tema trebuie sa implementati un procesator de comenzi de Black Friday in limbajul de programare Java,
+care sa foloseasca mecanisme de paralelizare. Ideea temei este acea de a prelucra comenzi in paralel, respectiv de a prelucra 
+si fiecare produs in parte (chiar si din cadrul aceleiasi comenzi) in mod paralel. Puteti face o analogie cu modul in care
+sunt trimise (sau cel putin erau la un moment dat) produsele din comenzile eMAG: din cauza faptului ca se pot afla in
+depozite diferite, de multe ori produse din aceeasi comanda pot pleca in colete diferite prin curier pentru
+eficientizarea livrarii. Scopul temei este acela de a simula acest produs. Astfel, la un moment de timp o
+comanda poate avea o parte produse dintre produse expediate (shipped), insa doar cand toate produsele din
+cadrul sau sunt trimise putem spune ca intreaga comanda este expediata.
+Programul trebuie sa citeasca doua fisiere de intrare (ce contin comenzi, respectiv produsele continute in
+cadrul acestora) si sa creeze doua fisiere de iesire in care sa scrie comenzile expediate, respectiv produsele
+asignate.
