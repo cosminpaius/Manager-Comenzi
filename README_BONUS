@@ -1,0 +1,8 @@
+Paius Marian-Cosmin
+332CC
+
+	In main, deschid NUM_THREADS task-uri care sa se ocupe de fisierul de comenzi, iar
+ in clasa MyRunnable, folosesc BufferedReader astel incat fiecare comanda sa aiba reader-ul
+ ei. Astfel, fiecare thread se va ocupa de o parte diferita a fisierului. Intr-adevar,
+ pentru comenzi diferite, thread-urile vor citi produsul de mai multe ori, dar la aceeasi
+ comanda un thread citeste doar produsule asignate lui.

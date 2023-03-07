@@ -1,0 +1,22 @@
+Paius Marian-Cosmin
+332CC
+
+
+	In clasa Tema2, deschid fisierele, preiau argumentele, dupa care deschid 2 ExecutorService
+ pentru fiecare nivel in parte. Variabila InQueue ia valori intre 0 si numarul de thread-uri,
+ scazand in momentul in care fiecare thread termina de citit din fisier. Deschid NUM_THREADS
+ task-uri, prin metoda submit() folosind MyRunnable pentru a se ocupa de comenzi.
+	
+	In clasa MyRunnable care implementeaza interfata Runnable, preiau cele 2 ExecutorService,
+ readear-ul, numarul de thread-uri si numele fisierului de intrare pentru comenzi. Incep
+ sa citesc pornind task-uri care sa se ocupe de fisierul de produse. In plus, deschid cate un reader
+ nou pentru fiecare comanda asfel incat fiecare thread sa citeasca parti diferite din fisier(BONUS).
+ Folosesc un semafor, initializat cu minus numarul de produse din comanda curenta +1, dand release()
+ la fiecare produs citit, astfel incat in momentul in care sunt citite toate produsele, sa se scrie 
+ in fisierul de iesire faptul ca a fost expediata comanda. Dupa terminarea while-ului, decrementez InQueue.
+	
+	In clasa MyRunnable2, citesc linia din fisier, separand numele comenzii de numele produsului.
+ Preiau cele 2 ExecutorService, reader-ul, semaforul si linia citita din fisierul orders.txt pentru
+ a compara numele comenzii cu cel al celei curente. In cazul in care comanda citita corespunde cu
+ cea trimisa, creste numarul de produse gasite (semaphore.release()) si scriu in fisierul de iesire
+ faptul ca produsul curent a fost expediat, iar in final citesc urmatoarea linie. 
